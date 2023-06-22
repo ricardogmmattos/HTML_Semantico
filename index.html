@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+<style>
+    kbd {
+        border: solid 1px black;
+        padding: 5px;
+    } 
+    pre {
+        background: #f1f1f1;
+    }
+    pre>code {
+        color: red;
+    }
+    pre>p {
+        font-style: italic;
+        color: gray;
+        padding-left: 30px;
+    }
+    code {
+        background-color: #f1f1f1;
+        color:blue;
+    }
+    meter {
+        : yellow;
+    }
+</style>
+
 </head>
 <body>
     <header>
@@ -12,10 +38,79 @@
 
     <main>
 
+    <input list="browsers" type="search" name="search">
+        <datalist id="browsers">
+            <option value="chrome">Google Chrome</option>
+            <option value="firefox">Mozila Firefox</option>
+            <option value="edge">Microsoft Edge</option>
+            <option value="safari">Safari</option>
+            <option value="opera">Opera</option>    
+        </datalist> 
+    <hr>
+
+    <select name="browsers" id="">
+        <option value="chrome">Google Chrome</option>
+        <option value="firefox">Mozila Firefox</option>
+        <option value="edge">Microsoft Edge</option>
+        <option value="safari">Safari</option>
+        <option value="opera">Opera</option>
+    </select>
+
+    <p>Para copiar esta informação, pressione <kbd>CTRL + C</kbd>        </p>
+
+    <p>Para trocar o fundo de um elemento, utilize o comando <code>background-color:</code>    </p>
+    <p>Comando completo de alterar cor de fundo:</p>
+    <pre>
+        <p>//Neste momento você aplica desta forma</p>
+        <code>
+            code {
+                background-color: #f1f1f1;
+                cor: red;
+            }    
+        </code>
+    </pre>
+
+        <details>
+            <summary>Como troco a cor de fundo de um elemento no HTML?</summary>
+            <p>Para executar esta ação, utilize o comando <code>background-color</code> no CSS.</p>
+        </details>
+
+        <meter max="100" min="0" value="50"></meter>
+        <progress id="progress" max="100" min="0" value="0"></progress>
+
+        <br><br>
+        <input type="text" id="busca">
+        <p id="descricao">Os nossos cursos e programas de formação são criados para as empresas mais inovadoras do mundo, aplicando uma metodologia domine as tecnologias utilizadas no mercado e também mergulhe nas atuias tecnologias que impactarão o futuro dos negócios digitais.</p>
+
     </main>
 
     <footer>
         
     </footer>
+
+    <script>
+        var progress = document.getElementById('progress');
+        const interval = setInterval(() => {
+            progress.value += 10;
+            if (progressive.value >= 100) {
+                alert('')
+                clearInterval(interval)
+            }  
+        }, 1000)
+
+        var searchField = document.getElementById('busca');
+        var descriptionObject = document.getElementById('descricao');
+        var textToSearch = descriptonObject.innerHTML;
+
+        function realizaBusca(busca) {
+            const regex = new RegExp(`(${busca})(?!(.(?!<mark))*</mark>)+`,'ig');
+            const ocurrences = textToSearch.match(regex);
+            descriptionObject.innerHTML = textToSearch.replace(regex, `<mark>${busca}</mark>`)
+        }
+
+        searchField.addEventListener('keyup', (e) => realizaBusca(e.target.value));
+
+    </script>
+
 </body>
 </html>
